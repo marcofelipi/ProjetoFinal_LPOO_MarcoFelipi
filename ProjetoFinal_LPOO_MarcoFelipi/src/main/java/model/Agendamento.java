@@ -32,6 +32,7 @@ public class Agendamento implements Serializable {
     @Column(name = "status", length = 20)
     private String status;
 
+    // CAHVES ESTRANGEIRAS - PACIENTE_ID E DENTISTA_ID PRA AQUELE AGENDAMENTO
     @ManyToOne
     @JoinColumn(name = "paciente_id", nullable = false)
     private Paciente paciente;

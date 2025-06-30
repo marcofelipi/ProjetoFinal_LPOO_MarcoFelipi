@@ -8,6 +8,9 @@ package dao;
  *
  * @author marco
  */
+
+
+//define metodos mais genericos que serao implementados no arquivo persistenciaJPA
 public interface InterfaceBD {
     public Boolean conexaoAberta();
     public void fecharConexao();

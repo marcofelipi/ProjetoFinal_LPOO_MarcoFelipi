@@ -16,7 +16,7 @@ import java.time.LocalDate;
  */
 public class FormProntuario extends javax.swing.JFrame {
     private Prontuario prontuario;
-    private Agendamento agendamento; // Guarda a referência do agendamento pai
+    private Agendamento agendamento;
     private final PersistenciaJPA dao;    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormProntuario.class.getName());
 
@@ -28,17 +28,14 @@ public class FormProntuario extends javax.swing.JFrame {
         this.dao = new PersistenciaJPA();
         this.agendamento = agendamento;
         
-        // Verifica se o agendamento JÁ TEM um prontuário associado
         if (agendamento.getProntuario() != null) {
-            // Se sim, estamos em modo de EDIÇÃO
             setTitle("Editar Prontuário");
             this.prontuario = agendamento.getProntuario();
             preencherCampos();
         } else {
-            // Se não, estamos em modo de CRIAÇÃO
             setTitle("Novo Prontuário");
             this.prontuario = new Prontuario();
-            this.prontuario.setData(LocalDate.now()); // Pega a data de hoje
+            this.prontuario.setData(LocalDate.now());
         }
     }
     
@@ -172,22 +169,23 @@ public class FormProntuario extends javax.swing.JFrame {
         prontuario.setTratamento(jtaTratamento.getText());
         prontuario.setAnotacoes(jtaAnotacoes.getText());
 
+
+        this.prontuario.setAgendamento(this.agendamento); 
+        this.agendamento.setProntuario(this.prontuario); 
+
         try {
-            // Associa o prontuário ao agendamento (relação bidirecional)
-            this.agendamento.setProntuario(this.prontuario);
-            
-            // <<< O TRUQUE FINAL:
-            // Em vez de salvar o prontuário, nós atualizamos o AGENDAMENTO.
-            // Como a relação está com "cascade = CascadeType.ALL", o JPA
-            // vai salvar/atualizar o prontuário automaticamente junto.
-            // É mais seguro e garante a integridade da relação.
-            dao.merge(this.agendamento); 
-            
+            if (this.prontuario.getId() == 0) {
+                dao.persist(this.prontuario);
+            } else {
+                dao.merge(this.prontuario);
+            }
+
             JOptionPane.showMessageDialog(this, "Prontuário salvo com sucesso!");
-            dispose(); // Fecha a tela
+            dispose();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro ao salvar prontuário: " + e.getMessage());
+            e.printStackTrace();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 

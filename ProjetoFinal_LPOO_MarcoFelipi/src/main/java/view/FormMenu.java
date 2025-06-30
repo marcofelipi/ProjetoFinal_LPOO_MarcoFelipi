@@ -4,6 +4,8 @@
  */
 package view;
 
+// NOSSA TELA INICIAL
+
 /**
  *
  * @author marco
@@ -34,7 +36,6 @@ public class FormMenu extends javax.swing.JFrame {
         jMenuItemPacientes = new javax.swing.JMenuItem();
         jMenuItemDentistas = new javax.swing.JMenuItem();
         jMenuItemAgendamentos = new javax.swing.JMenuItem();
-        jMenuItemProntuarios = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -67,9 +68,6 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItemAgendamentos);
 
-        jMenuItemProntuarios.setText("Prontuarios");
-        jMenuCadastros.add(jMenuItemProntuarios);
-
         jMenuBar1.add(jMenuCadastros);
 
         jMenu2.setText("Ajuda");
@@ -91,6 +89,7 @@ public class FormMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //vai ter um jmenuitem para cada uma das classes, exceto prontuarios (acessivel pelo agendamento)
     private void jMenuItemDentistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDentistasActionPerformed
         FormDentistaLista tela = new FormDentistaLista();
         tela.setVisible(true);
@@ -139,6 +138,5 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemAgendamentos;
     private javax.swing.JMenuItem jMenuItemDentistas;
     private javax.swing.JMenuItem jMenuItemPacientes;
-    private javax.swing.JMenuItem jMenuItemProntuarios;
     // End of variables declaration//GEN-END:variables
 }

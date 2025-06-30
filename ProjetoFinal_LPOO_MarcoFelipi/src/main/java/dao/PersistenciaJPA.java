@@ -34,7 +34,7 @@ public class PersistenciaJPA implements InterfaceBD {
     }
 
 
-    
+    //procura pelo ID (seja qualquer tipo, agendamento, paciente, dentista...
     @Override
     public <T> T find(Class<T> clazz, Object id) {
         try {

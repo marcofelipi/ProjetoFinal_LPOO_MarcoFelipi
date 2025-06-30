@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_prontuario")
 public class Prontuario implements Serializable {
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private int id;
@@ -31,7 +31,9 @@ public class Prontuario implements Serializable {
 
     @Column(name = "anotacoes", length = 500)
     private String anotacoes;
-
+    
+    
+    // CHAVE ESTRANGEIRA LIGADA AO AGENDAMENTO
     @OneToOne
     @JoinColumn(name = "agendamento_id", nullable = false)
     private Agendamento agendamento;

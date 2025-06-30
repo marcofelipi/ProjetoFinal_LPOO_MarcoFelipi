@@ -10,10 +10,12 @@ import javax.persistence.*;
  * @author marco
  */
 
+//classe virará uma tabela chamada tbl_paciente
 @Entity
 @Table(name = "tbl_paciente")
 public class Paciente implements Serializable {
 
+    //chave primaria
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
@@ -37,9 +39,11 @@ public class Paciente implements Serializable {
     @Column(name = "endereco", length = 200)
     private String endereco;
 
+    //um paciente pode ter muitos agendametnos
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Agendamento> listaAgendamentos;
 
+    // construtor define também uma lista de agendamentos para aquele paciente
     public Paciente() {
         listaAgendamentos = new ArrayList<>();
     }

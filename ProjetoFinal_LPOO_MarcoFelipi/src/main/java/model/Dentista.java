@@ -39,6 +39,7 @@ public class Dentista implements Serializable {
     @Column(name = "email", length = 100)
     private String email;
 
+    //UM DENTISTA PODE TER MUITOS AGENDAMENTOS
     @OneToMany(mappedBy = "dentista", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Agendamento> listaAgendamentos;
 

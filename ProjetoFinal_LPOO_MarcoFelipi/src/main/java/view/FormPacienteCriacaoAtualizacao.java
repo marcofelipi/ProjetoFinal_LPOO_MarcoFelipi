@@ -18,8 +18,8 @@ import java.util.logging.Logger;
  * @author marco
  */
 public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
-    private Paciente paciente; // pode ser null para novo
-    private FormPacienteLista telaLista; // referência para atualizar a tabela
+    private Paciente paciente;
+    private FormPacienteLista telaLista;
     private PersistenciaJPA dao;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormPacienteCriacaoAtualizacao.class.getName());
 
@@ -77,6 +77,7 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtDataNasc = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 204));
@@ -84,6 +85,7 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
 
         jLabel1.setText("Nome:");
 
+        txtNome.setForeground(new java.awt.Color(153, 153, 153));
         txtNome.setText("Nome:");
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +95,7 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
 
         jLabel2.setText("CPF:");
 
+        txtCpf.setForeground(new java.awt.Color(153, 153, 153));
         txtCpf.setText("CPF:");
         txtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +105,7 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
 
         jLabel3.setText("Telefone:");
 
+        txtTelefone.setForeground(new java.awt.Color(153, 153, 153));
         txtTelefone.setText("Telefone:");
         txtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +115,7 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
 
         jLabel4.setText("Email:");
 
+        txtEmail.setForeground(new java.awt.Color(153, 153, 153));
         txtEmail.setText("Email:");
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +127,7 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
 
         jLabel6.setText("Endereço:");
 
+        txtEndereco.setForeground(new java.awt.Color(153, 153, 153));
         txtEndereco.setText("Endereço:");
         txtEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,11 +149,15 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
             }
         });
 
+        txtDataNasc.setForeground(new java.awt.Color(153, 153, 153));
         try {
             txtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setText("Criação/Atualização de Paciente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,8 +172,16 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addGap(30, 30, 30)
+                            .addComponent(txtEndereco))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1)
                                 .addComponent(jLabel2))
@@ -171,31 +189,28 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                             .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel5))
                             .addGap(23, 23, 23)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                                .addComponent(txtDataNasc))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(30, 30, 30)
-                        .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7))
-                .addContainerGap(105, Short.MAX_VALUE))
+                                .addComponent(txtDataNasc)))))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -336,6 +351,7 @@ public class FormPacienteCriacaoAtualizacao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JFormattedTextField txtDataNasc;
     private javax.swing.JTextField txtEmail;
