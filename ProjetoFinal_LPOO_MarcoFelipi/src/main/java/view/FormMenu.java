@@ -36,7 +36,8 @@ public class FormMenu extends javax.swing.JFrame {
         jMenuItemPacientes = new javax.swing.JMenuItem();
         jMenuItemDentistas = new javax.swing.JMenuItem();
         jMenuItemAgendamentos = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuAjuda = new javax.swing.JMenu();
+        jMenuItemSobre = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -70,8 +71,17 @@ public class FormMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuCadastros);
 
-        jMenu2.setText("Ajuda");
-        jMenuBar1.add(jMenu2);
+        jMenuAjuda.setText("Ajuda");
+
+        jMenuItemSobre.setText("Sobre");
+        jMenuItemSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSobreActionPerformed(evt);
+            }
+        });
+        jMenuAjuda.add(jMenuItemSobre);
+
+        jMenuBar1.add(jMenuAjuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -105,6 +115,11 @@ public class FormMenu extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemAgendamentosActionPerformed
 
+    private void jMenuItemSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSobreActionPerformed
+        FormSobre tela = new FormSobre();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItemSobreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -131,12 +146,13 @@ public class FormMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCadastros;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemAgendamentos;
     private javax.swing.JMenuItem jMenuItemDentistas;
     private javax.swing.JMenuItem jMenuItemPacientes;
+    private javax.swing.JMenuItem jMenuItemSobre;
     // End of variables declaration//GEN-END:variables
 }
